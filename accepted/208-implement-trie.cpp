@@ -9,6 +9,16 @@ public:
         memset((void *)m_pSubs, 0, sizeof(m_pSubs));
     }
     
+    ~TrieNode()
+    {
+        for (int i = 0; i < sizeof(m_pSubs) / sizeof(m_pSubs[0]); i++)
+            if (NULL != m_pSubs[i])
+            {
+                delete m_pSubs[i];
+                m_pSubs[i] = NULL;
+            }
+    }
+    
     TrieNode *m_pSubs[26];
     bool m_bHasWord;
 };
@@ -41,6 +51,12 @@ public:
         }
 
         pCur->m_bHasWord = true;
+    }
+    
+    ~Trie()
+    {
+        delete root;
+        root = NULL;
     }
 
     // Returns if the word is in the trie.
