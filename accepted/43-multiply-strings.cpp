@@ -28,7 +28,7 @@ public:
             {
                 nIndex = i + j;
                 int nNum2 = num2[nNum2Len - 1 - j] - '0';
-                if (result.size() - 1 < nIndex)
+                if ((int)(result.size()) - 1 < nIndex)
                     result.push_back(0);
                 
                 int nCur = result[nIndex] + nFlag + nNum1 * nNum2;
@@ -39,7 +39,7 @@ public:
             while (nFlag > 0)
             {
                 nIndex++;
-                if (result.size() - 1 < nIndex)
+                if ((int)(result.size() - 1) < nIndex)
                     result.push_back(0);
                 
                 result[nIndex] = nFlag % 10;
@@ -64,9 +64,10 @@ public:
 
 int main()
 {
-    std::string s1 = "123";
-    std::string s2 = "456";
+    std::string s1 = "01";
+    std::string s2 = "06";
     Solution s;
     printf("%s\n", s.multiply(s1, s2).c_str());
+    system("pause");
     return 0;
 }
