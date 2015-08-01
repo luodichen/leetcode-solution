@@ -1,11 +1,4 @@
 /* https://leetcode.com/problems/multiply-strings/ */
-#include <string>
-#include <vector>
-#include <string.h>
-#include <stdio.h>
-
-using namespace std;
-
 class Solution 
 {
 public:
@@ -61,13 +54,3 @@ public:
         return ret;
     }
 };
-
-int main()
-{
-    std::string s1 = "01";
-    std::string s2 = "06";
-    Solution s;
-    printf("%s\n", s.multiply(s1, s2).c_str());
-    system("pause");
-    return 0;
-}
