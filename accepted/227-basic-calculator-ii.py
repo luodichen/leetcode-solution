@@ -21,15 +21,10 @@ class Solution:
             left = self.numbers.pop()
             symbol = self.symbols.pop()
             
-            if symbol == '+':
-                result = left + right
-            elif symbol == '-':
-                result = left - right
-            elif symbol == '*':
-                result = left * right
-            elif symbol == '/':
-                result = left / right
-                
+            result = {'+': lambda a, b: a + b, '-': lambda a, b: a - b,
+                      '*': lambda a, b: a * b, '/': lambda a, b: a / b,
+                     }[symbol](left, right)
+
             self.numbers.append(result)
         
     def input(self, ch):
@@ -61,3 +56,5 @@ class Solution:
         self.number_got(0)
         
         return self.numbers[0]
+
+print Solution().calculate('1+4')
