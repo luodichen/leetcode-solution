@@ -29,11 +29,11 @@ class Solution(object):
             n100 = num % 1000
             numstr = ''
             if n100 >= 100:
-                numstr = self.combine(numstr, right=self.combine(ones[n100 / 100], right=hundred))
+                numstr = self.combine(ones[n100 / 100], numstr, hundred)
             n100 %= 100
             
             if n100 > 20:
-                numstr = self.combine(numstr, right=self.combine(tens[n100 / 10], right=ones[n100 % 10]))
+                numstr = self.combine(tens[n100 / 10], numstr, ones[n100 % 10])
             else:
                 numstr = self.combine(numstr, right=ones[n100])
             
