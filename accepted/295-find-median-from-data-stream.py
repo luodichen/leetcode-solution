@@ -55,9 +55,8 @@ class MedianFinder:
             self.mMiddle.append(num)
         elif len(self.mMiddle) == 1:
             target = self.mLeftHeap if num < self.mMiddle[0] else self.mRightHeap
-            if target is not None:
-                target.put(num)
-                num = target.get()
+            target.put(num)
+            num = target.get()
             
             self.mMiddle.append(num)
             if self.mMiddle[0] > self.mMiddle[1]:
